@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const ParserError = require("../error/ParserError.js");
 
 class Tokenizer {
     constructor(fileName) {
@@ -69,3 +68,5 @@ class Tokenizer {
 }
 
 new Tokenizer("sample.txt");
+
+module.exports = Tokenizer;
