@@ -1,0 +1,5 @@
+Entity
+Name: Rental
+Unique attributes: id
+Non-unique attributes: name, phone
+end
