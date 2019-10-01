@@ -1,10 +1,15 @@
-class ATTRIBUTE {
-    constructor(isUnique) {
-        this.isUnique = isUnique;
+const Node = require('../parser/Node')
+
+class ATTRIBUTE extends Node {
+    constructor() {
+        super();
+        // this.isUnique = isUnique;
     }
 
     parse() {
         // this.name // attribute name
+        console.log("running from the attribute classs")
+        return;
     }
 
     evaluate() {
@@ -15,3 +20,6 @@ class ATTRIBUTE {
         // phase 2
     }
 }
+
+const x = new ATTRIBUTE();
+x.parse();
