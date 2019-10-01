@@ -10,8 +10,7 @@ class Tokenizer {
                 "utf-8"
             );
         } catch (err) {
-            // throw new ParserError("Unable to load source: ${filename}");
-            console.log("File not found");
+            throw new Error("Unable to load source: ${filename}");
         }
         // initialize tokenizer's fields
         this.tokens = []
