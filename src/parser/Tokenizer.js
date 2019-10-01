@@ -22,7 +22,6 @@ class Tokenizer {
     tokenize() {
         const lines = this.program.split("\n") || [];
         lines.forEach(line => {
-            // if ':' exists in line
             if (line.indexOf(":") > 0) {
                 const temp = line.split(":");
                 this.tokens.push(temp[0], ...temp[1].trim().split(", "));
@@ -41,7 +40,6 @@ class Tokenizer {
     }
 
     getNext() {
-        // this "consumes" the token
         if (this.currentTokenIdx < this.tokens.length) {
             this.currentTokenIdx++;
             return this.tokens[this.currentTokenIdx];
