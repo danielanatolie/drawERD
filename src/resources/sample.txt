@@ -1,5 +1,11 @@
-Entity
-Name: Rental
-Unique attributes: phone#
-Non-unique attributes: name, date
+Entity:Rental
+Unique attributes: Phone #
+Non-unique attributes: Name, Date
 end
+Entity:Customer
+Unique attributes: CustomerID
+end
+Relationship:Has
+Type: 1-MA
+Entity1: Rental
+Entity2: Customer
