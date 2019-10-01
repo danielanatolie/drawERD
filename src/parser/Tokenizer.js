@@ -15,49 +15,53 @@ class Tokenizer {
 
     tokenize() {
         const lines = this.program.split('\n') || [];
-        this.token = []
+        this.tokens = []
         lines.forEach(line => {
             if (line.indexOf(':') > 0) {
                 const temp = line.split(":");
-                this.token.push(temp[0], temp[1].trim());
+                this.tokens.push(temp[0], temp[1].trim());
             } else {
-                this.token.push(line.trim());
+                this.tokens.push(line.trim());
             }
         })
         this.currentTokenIdx = 0;
     }
 
-    top() {
+    checkNext() {
         if (this.currentTokenIdx < this.tokens.length) {
-            // ignore blank lines
-            while ("NEW_LINE" === this.tokens[this.currentTokenIdx]) {
-                this.currentTokenIdx += 1;
-                this.line += 1;
-                this.column = 0;
-            }
-
             return this.tokens[this.currentTokenIdx];
+        } else {
+            return false;
         }
-
-        return null;
     }
 
-    pop() {
-        if (this.top() != null) {
-            let token = this.tokens[this.currentTokenIdx];
-            this.currentTokenIdx += 1;
-            this.column += 1;
-            return token;
+    getNext() {
+        // this "consumes" the token
+        if (this.currentTokenIdx < this.tokens.length) {
+            this.currentTokenIdx++;
+            return this.tokens[this.currentTokenIdx]
+        } else {
+            return false;
         }
-        return null;
     }
 
-    hasNext() {
-        return this.top() !== null;
+    checkToken(regex) {
+        const cur = this.checkNext();
+        console.log("comparing ${cur} to ${regex}")
+        return cur.match(regex)
     }
 
-    getLine() {
-        return this.line;
+    getAndCheck(regex) {
+        const cur = this.getNext()
+        if (!s.match(regex)) {
+            throw new Error("something went wrong...")
+        }
+        console.log("matched: ${cur} to ${regex}")
+        return cur;
+    }
+
+    moreToken() {
+        return this.currentTokenIdx < this.tokens.length;
     }
 }
 
