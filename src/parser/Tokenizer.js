@@ -31,7 +31,6 @@ class Tokenizer {
     }
 
     checkNext() {
-        console.log('here')
         if (this.currentTokenIdx < this.tokens.length) {
             return this.tokens[this.currentTokenIdx];
         } else {

@@ -7,13 +7,13 @@ class ATTRIBUTE extends Node {
     }
 
     parse() {
-        this.name = this.tokenizer.checkNext();
-        console.log("running from the attribute classs")
-        return;
+        this.name = this.tokenizer.getNext();
+        // TODO: need the entitiy name too..
     }
 
     evaluate() {
         const edge = new EDGE();
+        // TODO: need to pass isUnique in
         edge.evaluate();
     }
 
