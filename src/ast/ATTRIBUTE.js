@@ -8,12 +8,16 @@ class ATTRIBUTE extends Node {
     }
 
     parse() {
+        if (this.isUnique) {
+            this.tokenizer.getAndCheck("Unique attribute");
+        } else {
+            this.tokenizer.getAndCheck("Non-unique atribute");
+        }
         this.name = this.tokenizer.getNext();
     }
 
     evaluate() {
         const edge = new EDGE(this.entity, this, "attribute");
-        // TODO: need to pass isUnique in
         edge.evaluate();
     }
 
