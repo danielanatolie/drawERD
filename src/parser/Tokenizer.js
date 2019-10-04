@@ -69,4 +69,8 @@ class Tokenizer {
 
 new Tokenizer("sample.txt");
 
+<<<<<<< HEAD
 module.exports = Tokenizer;
+=======
+module.exports = Tokenizer;
+>>>>>>> ellen_parse
