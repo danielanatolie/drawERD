@@ -1,18 +1,18 @@
 const Node = require('../parser/Node')
 
 class ATTRIBUTE extends Node {
-    constructor(isUnique) {
+    constructor(entity, isUnique) {
         super();
+        this.entity = entity;
         this.isUnique = isUnique;
     }
 
     parse() {
         this.name = this.tokenizer.getNext();
-        // TODO: need the entitiy name too..
     }
 
     evaluate() {
-        const edge = new EDGE();
+        const edge = new EDGE(this.entity, this, "attribute");
         // TODO: need to pass isUnique in
         edge.evaluate();
     }
