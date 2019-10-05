@@ -1,0 +1,4 @@
+Relationship:Has
+Entity1: Rental
+Entity2: Customer
+Type: 1-MA
