@@ -15,12 +15,16 @@ class RELATIONSHIP extends Node {
         try{
             this.tokenizer.checkToken("Relationship");
             this.name = this.tokenizer.getNext();
+            this.tokenizer.getNext();
             this.tokenizer.checkToken("Entity1");
             this.entity1 = this.tokenizer.getNext();
+            this.tokenizer.getNext();
             this.tokenizer.checkToken("Entity2");
             this.entity2 = this.tokenizer.getNext();
+            this.tokenizer.getNext();
             this.tokenizer.checkToken("Type");
             this.type = this.tokenizer.getNext();
+            this.tokenizer.getNext();
         } catch(err){
             throw new Error("Unable to build AST.");
         }

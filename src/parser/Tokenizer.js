@@ -49,13 +49,18 @@ class Tokenizer {
 
     checkToken(regex) {
         const cur = this.checkNext();
-        console.log("comparing ${cur} to ${regex}");
-        return cur.match(regex);
+        console.log('comparing ' + cur + ' to ' + regex);
+        const match = cur.match(regex);
+        if (match === null) {
+            throw new Error(cur + " and " + regex + " do not match");
+        }
+
     }
 
     getAndCheck(regex) {
         const cur = this.getNext();
-        if (!s.match(regex)) {
+        const match = cur.match(regex);
+        if (match === null) {
             throw new Error("something went wrong...");
         }
         console.log("matched: ${cur} to ${regex}");
