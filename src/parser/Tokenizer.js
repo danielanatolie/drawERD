@@ -67,6 +67,4 @@ class Tokenizer {
     }
 }
 
-new Tokenizer("sample.txt");
-
 module.exports = Tokenizer;

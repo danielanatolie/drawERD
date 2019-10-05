@@ -1,8 +1,8 @@
 const Tokenizer = require('./Tokenizer');
 
 class Node {
-    constructor() {
-        this.tokenizer = new Tokenizer('sample.txt');
+    constructor(filename) {
+        this.tokenizer = new Tokenizer(filename);
     }
 
     parse() {

@@ -2,16 +2,16 @@ const Node = require('../parser/Node')
 
 class ATTRIBUTE extends Node {
     constructor(entity, isUnique) {
-        super();
+        super('attribute.txt');
         this.entity = entity;
         this.isUnique = isUnique;
     }
 
     parse() {
         if (this.isUnique) {
-            this.tokenizer.getAndCheck("Unique attribute");
+            this.tokenizer.checkToken("Unique attribute");
         } else {
-            this.tokenizer.getAndCheck("Non-unique atribute");
+            this.tokenizer.checkToken("Non-unique atribute");
         }
         this.name = this.tokenizer.getNext();
     }
@@ -26,5 +26,5 @@ class ATTRIBUTE extends Node {
     }
 }
 
-const x = new ATTRIBUTE();
+const x = new ATTRIBUTE(undefined, true);
 x.parse();
