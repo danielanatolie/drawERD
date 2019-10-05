@@ -55,7 +55,7 @@ class Tokenizer {
 
     getAndCheck(regex) {
         const cur = this.getNext();
-        if (!s.match(regex)) {
+        if (!cur.match(regex)) {
             throw new Error("something went wrong...");
         }
         console.log("matched: ${cur} to ${regex}");
