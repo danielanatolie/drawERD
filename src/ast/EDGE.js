@@ -4,7 +4,7 @@ const fs = require('fs')
 
 class EDGE extends Node {
   constructor(entity1, entity2, type) {
-    super();
+    super(); // TODO: Seems like Edge shouldn't be extending Node, it is more of a helper
     this.entity1 = entity1;
     this.entity2 = entity2;
     this.type = type;

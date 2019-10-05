@@ -1,0 +1,3 @@
+Entity:Rental
+Unique attributes: Phone #
+Non-unique attributes: Name, Date

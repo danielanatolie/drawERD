@@ -2,7 +2,7 @@ const Node = require('../parser/Node')
 
 class PROGRAM extends Node {
     constructor() {
-        super();
+        super("sample.txt");
         //this.mermaidInput = "";
         this.entities = [];
         this.relationships = [];

@@ -4,7 +4,7 @@ const fs = require('fs')
 
 class RELATIONSHIP extends Node {
     constructor(){
-        super();
+        super("relationship.txt");
         this.name = "";
         this.entity1 = "";
         this.entity2 = "";
