@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Input from './components/Input';
 import './App.css';
+import Output from './components/Output';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <body>
           <div className="container">
             <Input />
+            <Output />
           </div>
         </body>
       </div>
