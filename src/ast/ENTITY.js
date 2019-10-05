@@ -23,9 +23,11 @@ class ENTITY extends Node {
             // this means that non unique attributes are optional 
             cur = this.tokenizer.getNext();
             while (cur !== "end") {
-                    this.nonUniqueAttributes.push (cur);
-                    cur = this.tokenizer.getNext();
-                   }
+                this.nonUniqueAttributes.push (cur);
+                cur = this.tokenizer.getNext();
+            }
+            //console.log(this.uniqueAttributes);
+            //console.log(this.nonUniqueAttributes);
         }
         catch (err) {
             throw new Error("Unable to build AST");
@@ -33,19 +35,28 @@ class ENTITY extends Node {
     }
 
     evaluate() {
-        if (this.tokenizer.getNext() == "Unique attributes") {
-            const attribute = new ATTRIBUTE(this.name, true);
-            attribute.evaluate();
+        //console.log(this.name);
+        //console.log(this.uniqueAttributes);
+        //console.log(this.nonUniqueAttributes);
+
+        if (this.uniqueAttributes.length != 0) {
+            for (let i = 0; i < this.uniqueAttributes.length; i++) {
+                const attribute = new ATTRIBUTE(this.name, true);
+                attribute.evaluate();
+            }
         }
-        if (this.tokenizer.getNext() == "Non-unique attributes") {
-            const attribute = new ATTRIBUTE(this.name, false);
-            attribute.evaluate();
+        
+        if (this.nonUniqueAttributes.length != 0) {
+            for (let i = 0; i < this.nonUniqueAttributes.length; i++) {
+                const attribute = new ATTRIBUTE(this.name, false);
+                attribute.evaluate();
+            }
         }  
     }
 }
 
-// Tokenizer.makeTokenizer("entity.txt")
-// const x = new ENTITY();
-// x.parse();
+//Tokenizer.makeTokenizer("entity.txt")
+//const x = new ENTITY();
+//x.parse();
 
 module.exports = ENTITY;
