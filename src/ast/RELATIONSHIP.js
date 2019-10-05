@@ -13,13 +13,13 @@ class RELATIONSHIP extends Node {
 
     parse(){
         try{
-            this.tokenizer.getAndCheck("Relationship");
+            this.tokenizer.checkToken("Relationship");
             this.name = this.tokenizer.getNext();
-            this.tokenizer.getAndCheck("Entity1");
+            this.tokenizer.checkToken("Entity1");
             this.entity1 = this.tokenizer.getNext();
-            this.tokenizer.getAndCheck("Entity2");
+            this.tokenizer.checkToken("Entity2");
             this.entity2 = this.tokenizer.getNext();
-            this.tokenizer.getAndCheck("Type");
+            this.tokenizer.checkToken("Type");
             this.type = this.tokenizer.getNext();
         } catch(err){
             throw new Error("Unable to build AST.");
