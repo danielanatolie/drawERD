@@ -28,3 +28,5 @@ class EDGE extends Node {
     });
   }
 }
+
+module.exports = EDGE;

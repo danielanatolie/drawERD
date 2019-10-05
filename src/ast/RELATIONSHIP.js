@@ -1,10 +1,11 @@
 const Node = require('../parser/Node')
 const EDGE = require('../ast/EDGE')
+const Tokenizer = require('../parser/Tokenizer')
 const fs = require('fs') 
 
 class RELATIONSHIP extends Node {
-    constructor(filename){
-        super(filename);
+    constructor(){
+        super();
         this.name = "";
         this.entity1 = "";
         this.entity2 = "";
@@ -13,18 +14,15 @@ class RELATIONSHIP extends Node {
 
     parse(){
         try{
-            this.tokenizer.checkToken("Relationship");
+            this.tokenizer.getAndCheck("Relationship");
             this.name = this.tokenizer.getNext();
-            this.tokenizer.getNext();
-            this.tokenizer.checkToken("Entity1");
+            this.tokenizer.getAndCheck("Entity1");
             this.entity1 = this.tokenizer.getNext();
-            this.tokenizer.getNext();
-            this.tokenizer.checkToken("Entity2");
+            this.tokenizer.getAndCheck("Entity2");
             this.entity2 = this.tokenizer.getNext();
-            this.tokenizer.getNext();
-            this.tokenizer.checkToken("Type");
+            this.tokenizer.getAndCheck("Type");
             this.type = this.tokenizer.getNext();
-            this.tokenizer.getNext();
+            this.tokenizer.getAndCheck("end");
         } catch(err){
             throw new Error("Unable to build AST.");
         }
@@ -42,10 +40,11 @@ class RELATIONSHIP extends Node {
     }
 }
 
-const x = new RELATIONSHIP("relationship.txt");
-x.parse();
+// Tokenizer.makeTokenizer("relationship.txt");
+// const x = new RELATIONSHIP();
+// x.parse();
 
-
+module.exports = RELATIONSHIP;
 /**
  * Relationship: Has
 Entity1: Rental

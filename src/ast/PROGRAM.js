@@ -1,8 +1,11 @@
 const Node = require('../parser/Node')
+const ENTITY = require('./ENTITY')
+const RELATIONSHIP = require('./RELATIONSHIP')
+const Tokenizer = require('../parser/Tokenizer')
 
 class PROGRAM extends Node {
-    constructor(filename) {
-        super(filename);
+    constructor() {
+        super();
         //this.mermaidInput = "";
         this.entities = [];
         this.relationships = [];
@@ -11,14 +14,14 @@ class PROGRAM extends Node {
     parse() {
         try {
             while (this.tokenizer.moreToken()) {
-                if (this.tokenizer.checkToken("ENTITY")) {
-                    this.entity = new ENTITY();
-                    this.entity.parse();
+                if (this.tokenizer.checkToken("Entity")) {
+                    const entity = new ENTITY();
+                    entity.parse();
                     this.entities.push(entity);
                 }
-                if (this.tokenizer.checkToken("RELATIONSHIP")) {
-                    this.relationship = new RELATIONSHIP();
-                    this.relationship.parse();
+                if (this.tokenizer.checkToken("Relationship")) {
+                    const relationship = new RELATIONSHIP();
+                    relationship.parse();
                     this.relationships.push(relationship);
                 } 
             }  
@@ -42,5 +45,8 @@ class PROGRAM extends Node {
     }
 }
 
-const x = new PROGRAM("sample.txt");
+Tokenizer.makeTokenizer("sample.txt");
+const x = new PROGRAM();
 x.parse()
+
+module.exports = PROGRAM;

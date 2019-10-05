@@ -1,19 +1,26 @@
 const Node = require('../parser/Node')
+const Tokenizer = require('../parser/Tokenizer')
 
 class ATTRIBUTE extends Node {
-    constructor(entity, isUnique, filename) {
-        super(filename);
+    constructor(entity, isUnique) {
+        super();
         this.entity = entity;
         this.isUnique = isUnique;
     }
 
     parse() {
-        if (this.isUnique) {
-            this.tokenizer.checkToken("Unique attribute");
-        } else {
-            this.tokenizer.checkToken("Non-unique atribute");
+        try {
+            
+            if (this.isUnique) {
+                this.tokenizer.getAndCheck("Unique attributes");
+            } else {
+                this.tokenizer.getAndCheck("Non-unique attributes");
+            }
+            this.name = this.tokenizer.getNext();
         }
-        this.name = this.tokenizer.getNext();
+        catch (err) {
+            throw new Error("Unable to build AST");
+        }
     }
 
     evaluate() {
@@ -26,5 +33,8 @@ class ATTRIBUTE extends Node {
     }
 }
 
-const x = new ATTRIBUTE(undefined, true, "attribute.txt");
-x.parse();
+// Tokenizer.makeTokenizer("attribute.txt")
+// const x = new ATTRIBUTE(undefined, true);
+// x.parse();
+
+module.exports = ATTRIBUTE;

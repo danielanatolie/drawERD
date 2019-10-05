@@ -41,7 +41,7 @@ class Tokenizer {
     getNext() {
         if (this.currentTokenIdx < this.tokens.length) {
             this.currentTokenIdx++;
-            return this.tokens[this.currentTokenIdx];
+            return this.tokens[this.currentTokenIdx-1];
         } else {
             return false;
         }
@@ -52,8 +52,9 @@ class Tokenizer {
         console.log('comparing ' + cur + ' to ' + regex);
         const match = cur.match(regex);
         if (match === null) {
-            throw new Error(cur + " and " + regex + " do not match");
+            return false;
         }
+        return true;
 
     }
 
@@ -69,6 +70,14 @@ class Tokenizer {
 
     moreToken() {
         return this.currentTokenIdx < this.tokens.length;
+    }
+
+    static getTokenizer() {
+        return this.instance;
+    }
+
+    static makeTokenizer(filename) {
+        this.instance = new Tokenizer(filename);
     }
 }
 
