@@ -11,16 +11,16 @@ class PROGRAM extends Node {
     parse() {
         try {
             while (this.tokenizer.moreToken()) {
-                if (this.tokenizer.checkToken("ENTITY")) {
-                    this.entity = new ENTITY();
-                    this.entity.parse();
-                    this.entities.push(entity);
+                if (this.tokenizer.checkToken("Entity")) {
+                    const e = new ENTITY();
+                    e.parse();
+                    this.entities.push(e);
                 }
-                if (this.tokenizer.checkToken("RELATIONSHIP")) {
-                    this.relationship = new RELATIONSHIP();
-                    this.relationship.parse();
-                    this.relationships.push(relationship);
-                } 
+                if (this.tokenizer.checkToken("Relationship")) {
+                    const r = new RELATIONSHIP();
+                    r.parse();
+                    this.relationships.push(r);
+                }
             }  
         }
         catch (err) {
@@ -41,3 +41,6 @@ class PROGRAM extends Node {
         }
     }
 }
+
+const x = new PROGRAM();
+x.parse();
