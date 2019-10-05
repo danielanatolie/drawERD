@@ -1,8 +1,8 @@
 const Node = require('../parser/Node')
 
 class ATTRIBUTE extends Node {
-    constructor(entity, isUnique) {
-        super('attribute.txt');
+    constructor(entity, isUnique, filename) {
+        super(filename);
         this.entity = entity;
         this.isUnique = isUnique;
     }
@@ -26,5 +26,5 @@ class ATTRIBUTE extends Node {
     }
 }
 
-const x = new ATTRIBUTE(undefined, true);
+const x = new ATTRIBUTE(undefined, true, "attribute.txt");
 x.parse();

@@ -1,8 +1,8 @@
 const Node = require('../parser/Node')
 
 class PROGRAM extends Node {
-    constructor() {
-        super("sample.txt");
+    constructor(filename) {
+        super(filename);
         //this.mermaidInput = "";
         this.entities = [];
         this.relationships = [];
@@ -41,3 +41,6 @@ class PROGRAM extends Node {
         }
     }
 }
+
+const x = new PROGRAM("sample.txt");
+x.parse()

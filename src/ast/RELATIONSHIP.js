@@ -3,8 +3,8 @@ const EDGE = require('../ast/EDGE')
 const fs = require('fs') 
 
 class RELATIONSHIP extends Node {
-    constructor(){
-        super("relationship.txt");
+    constructor(filename){
+        super(filename);
         this.name = "";
         this.entity1 = "";
         this.entity2 = "";
@@ -37,6 +37,9 @@ class RELATIONSHIP extends Node {
         edge2.evaluate()
     }
 }
+
+const x = new RELATIONSHIP("relationship.txt");
+x.parse();
 
 
 /**
