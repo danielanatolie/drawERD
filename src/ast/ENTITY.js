@@ -4,18 +4,28 @@ class ENTITY extends Node {
     constructor(filename) {
         super(filename);
         this.name = "";
-        this.uniqueAttributes = "";
-        this.nonUniqueAttributes = "";
+        this.uniqueAttributes = [];
+        this.nonUniqueAttributes = [];
     }
 
     parse() {
         try {
             this.tokenizer.checkToken("Entity");
             this.name = this.tokenizer.getNext();
+            this.tokenizer.getNext();
             this.tokenizer.checkToken("Unique attributes");
-            this.uniqueAttributes = this.tokenizer.getNext();
+            let cur = this.tokenizer.getNext();
+            while (cur !== "Non-unique attributes") {
+                this.uniqueAttributes.push(cur);
+                cur = this.tokenizer.getNext();
+            }
             this.tokenizer.checkToken("Non-unique attributes");
-            this.nonUniqueAttributes = this.tokenizer.getNext();
+            cur = this.tokenizer.getNext();
+            while (cur !== "end") {
+                    this.nonUniqueAttributes.push (cur);
+                    cur = this.tokenizer.getNext();
+                   }
+            this.tokenizer.getNext();
         }
         catch (err) {
             throw new Error("Unable to build AST");
