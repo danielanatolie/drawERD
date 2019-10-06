@@ -37,6 +37,5 @@ class ATTRIBUTE extends Node {
 // const x = new ATTRIBUTE(undefined, "Phone", true);
 // x.parse();
 // x.evaluate();
-// console.log(this.mermaidInput);
 
 module.exports = ATTRIBUTE;
