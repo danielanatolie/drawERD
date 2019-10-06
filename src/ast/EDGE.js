@@ -23,11 +23,12 @@ class EDGE extends Node {
         break;
       case 'M-1':
         var data = this.node1 + ' <-- ' + this.node2;
+        break;
       default:
         throw new Error('Invalid type, could not generate graph edge.');
     }
-    // this.mermaidInput.push(data + '\n')
-    console.log(data + '\n');
+    this.tokenizer.mermaidInput.push(data);
+    // console.log(data + '\n')
   }
 }
 
