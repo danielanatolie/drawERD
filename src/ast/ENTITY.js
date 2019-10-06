@@ -1,5 +1,6 @@
 const Node = require('../parser/Node')
 const Tokenizer = require('../parser/Tokenizer')
+const ATTRIBUTE = require('./ATTRIBUTE')
 
 class ENTITY extends Node {
     constructor() {
