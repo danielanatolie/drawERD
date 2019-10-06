@@ -44,10 +44,10 @@ class PROGRAM extends Node {
     }
 }
 
-Tokenizer.makeTokenizer("sample.txt");
-const x = new PROGRAM();
-x.parse()
-x.evaluate()
+// Tokenizer.makeTokenizer("sample.txt");
+// const x = new PROGRAM();
+// x.parse()
+// x.evaluate()
 // console.log(this.mermaidInput)
 
 module.exports = PROGRAM;

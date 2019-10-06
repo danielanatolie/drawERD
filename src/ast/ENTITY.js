@@ -40,7 +40,7 @@ class ENTITY extends Node {
                 attribute.evaluate();
             }
         }
-
+        
         if (this.nonUniqueAttributes.length != 0) {
             for (let i = 0; i < this.nonUniqueAttributes.length; i++) {
                 const attribute = new ATTRIBUTE(this.name, false);
