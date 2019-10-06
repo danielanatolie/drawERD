@@ -1,7 +1,5 @@
 const Node = require('../parser/Node')
 const EDGE = require('../ast/EDGE')
-const Tokenizer = require('../parser/Tokenizer')
-const fs = require('fs') 
 
 class RELATIONSHIP extends Node {
     constructor(){
@@ -30,12 +28,11 @@ class RELATIONSHIP extends Node {
 
     evaluate(){
         var data = "Relationship{" + this.name + "}";
-        fs.writeFile("src/resources/output.txt", data, (err) =>{
-            if (err) throw err;
-        });
-        edge1 = new EDGE(this.entity1, this.name, this.type);
+        // this.mermaidInput.push(data + '\n');
+        console.log(data + '\n')
+        var edge1 = new EDGE(this.entity1, this.name, this.type);
         edge1.evaluate()
-        edge2 = new EDGE(this.name, this.entity2, this.type);
+        var edge2 = new EDGE(this.name, this.entity2, this.type);
         edge2.evaluate()
     }
 }
@@ -45,15 +42,3 @@ class RELATIONSHIP extends Node {
 // x.parse();
 
 module.exports = RELATIONSHIP;
-/**
- * Relationship: Has
-Entity1: Rental
-Entity2: Customer
-Type: 1-MA
-end
-
-CC{has}		// Relationship’s evaluate()
-
-AA --> CC	//Edge evaluate(Entity, Entity, type)
-CC --> BB
- */

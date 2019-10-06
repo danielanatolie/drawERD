@@ -28,6 +28,7 @@ class Tokenizer {
                 this.tokens.push(line.trim());
             }
         });
+        console.log(this.tokens);
     }
 
     checkNext() {
@@ -49,7 +50,7 @@ class Tokenizer {
 
     checkToken(regex) {
         const cur = this.checkNext();
-        console.log('comparing ' + cur + ' to ' + regex);
+        // console.log('comparing ' + cur + ' to ' + regex);
         const match = cur.match(regex);
         if (match === null) {
             return false;
@@ -64,7 +65,7 @@ class Tokenizer {
         if (match === null) {
             throw new Error("something went wrong...");
         }
-        console.log("matched: ${cur} to ${regex}");
+        // console.log("matched: ${cur} to ${regex}");
         return cur;
     }
 

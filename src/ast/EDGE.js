@@ -1,31 +1,34 @@
 const Node = require('../parser/Node')
-const fs = require('fs')
 
 
 class EDGE extends Node {
-  constructor(entity1, entity2, type) {
+  constructor(node1, node2, type) {
     super(); // TODO: Seems like Edge shouldn't be extending Node, it is more of a helper
-    this.entity1 = entity1;
-    this.entity2 = entity2;
+    this.node1 = node1;
+    this.node2 = node2;
     this.type = type;
   }
 
   evaluate() {
     switch (this.type) {
+      case "attribute":
+        var attribute = this.node2 + "((" + this.node2 + "))"
+        var entity = this.node1 + "[" + this.node1 + "]"
+        var data  = entity + " -- " + attribute
+        break;
       case "1-1":
-        var data = this.entity1 + " -- " + this.entity2;
+        var data = this.node1 + " -- " + this.node2;
         break;
       case "1-M":
-        var data = this.entity1 + " --> " + this.entity2;
+        var data = this.node1 + " --> " + this.node2;
         break;
       case "M-1":
-        var data = this.entity1 + " <-- " + this.entity2;
+        var data = this.node1 + " <-- " + this.node2;
       default:
         throw new Error("Invalid type, could not generate graph edge.")
     }
-    fs.writeFile("src/resources/output.txt", data, (err) => {
-      if (err) throw err;
-    });
+    // this.mermaidInput.push(data + '\n')
+    console.log(data + '\n')
   }
 }
 
