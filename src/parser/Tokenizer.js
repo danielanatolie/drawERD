@@ -82,8 +82,8 @@ class Tokenizer {
         this.instance = new Tokenizer(filename);
     }
 
-    static getMermaidInput() {
-        return this.mermaidInput;
+    convertMermaidInputToString() {
+        return this.mermaidInput.join("\n");
     }
 }
 

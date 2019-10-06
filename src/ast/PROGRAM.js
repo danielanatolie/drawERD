@@ -41,6 +41,7 @@ class PROGRAM extends Node {
                 this.relationships[i].evaluate();
             }
         }
+        // console.log(this.tokenizer.convertMermaidInputToString());
     }
 }
 
