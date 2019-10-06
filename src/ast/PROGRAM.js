@@ -47,6 +47,6 @@ class PROGRAM extends Node {
 
 Tokenizer.makeTokenizer("sample.txt");
 const x = new PROGRAM();
-x.parse()
+x.parse();
 
 module.exports = PROGRAM;
