@@ -34,6 +34,7 @@ class ENTITY extends Node {
     }
 
     evaluate() {
+        this.tokenizer.mermaidInput.push(this.name + "[" + this.name + "]");
         if (this.uniqueAttributes.length != 0) {
             for (let i = 0; i < this.uniqueAttributes.length; i++) {
                 const attribute = new ATTRIBUTE(this.name, this.uniqueAttributes[i], true);

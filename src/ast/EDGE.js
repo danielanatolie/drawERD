@@ -27,8 +27,8 @@ class EDGE extends Node {
       default:
         throw new Error("Invalid type, could not generate graph edge.")
     }
-    // this.mermaidInput.push(data + '\n')
-    console.log(data + '\n')
+    this.tokenizer.mermaidInput.push(data)
+    // console.log(data + '\n')
   }
 }
 

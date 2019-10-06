@@ -48,6 +48,6 @@ class PROGRAM extends Node {
 // const x = new PROGRAM();
 // x.parse()
 // x.evaluate()
-// console.log(this.mermaidInput)
+// console.log(Tokenizer.getTokenizer().mermaidInput);
 
 module.exports = PROGRAM;

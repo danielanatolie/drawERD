@@ -3,6 +3,7 @@ const path = require("path");
 
 class Tokenizer {
     constructor(fileName) {
+        this.mermaidInput = [];
         try {
             this.program = fs.readFileSync(
                 path.join("./src/resources", fileName),
@@ -79,6 +80,10 @@ class Tokenizer {
 
     static makeTokenizer(filename) {
         this.instance = new Tokenizer(filename);
+    }
+
+    static getMermaidInput() {
+        return this.mermaidInput;
     }
 }
 

@@ -29,7 +29,7 @@ class RELATIONSHIP extends Node {
     evaluate(){
         var data = "Relationship{" + this.name + "}";
         // this.mermaidInput.push(data + '\n');
-        console.log(data + '\n')
+        // console.log(data + '\n')
         var edge1 = new EDGE(this.entity1, this.name, this.type);
         edge1.evaluate()
         var edge2 = new EDGE(this.name, this.entity2, this.type);

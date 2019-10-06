@@ -26,6 +26,7 @@ class ATTRIBUTE extends Node {
     }
 
     evaluate() {
+        this.tokenizer.mermaidInput.push(this.name + "((" + this.name + "))");
         const edge = new EDGE(this.entity, this.name, "attribute");
         edge.evaluate();
     }
@@ -36,8 +37,9 @@ class ATTRIBUTE extends Node {
 }
 
 // Tokenizer.makeTokenizer("attribute.txt")
-// const x = new ATTRIBUTE(undefined, true);
+// const x = new ATTRIBUTE(undefined, "Phone", true);
 // x.parse();
 // x.evaluate();
+// console.log(this.mermaidInput);
 
 module.exports = ATTRIBUTE;
