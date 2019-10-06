@@ -6,6 +6,7 @@ Entity:Customer
 Unique attributes: CustomerID
 end
 Relationship:Has
-Type: 1-MA
 Entity1: Rental
 Entity2: Customer
+Type: 1-MA
+end

@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const ParserError = require("../error/ParserError.js");
 
 class Tokenizer {
     constructor(fileName) {
@@ -42,7 +41,7 @@ class Tokenizer {
     getNext() {
         if (this.currentTokenIdx < this.tokens.length) {
             this.currentTokenIdx++;
-            return this.tokens[this.currentTokenIdx];
+            return this.tokens[this.currentTokenIdx-1];
         } else {
             return false;
         }
@@ -50,13 +49,19 @@ class Tokenizer {
 
     checkToken(regex) {
         const cur = this.checkNext();
-        console.log("comparing ${cur} to ${regex}");
-        return cur.match(regex);
+        console.log('comparing ' + cur + ' to ' + regex);
+        const match = cur.match(regex);
+        if (match === null) {
+            return false;
+        }
+        return true;
+
     }
 
     getAndCheck(regex) {
         const cur = this.getNext();
-        if (!s.match(regex)) {
+        const match = cur.match(regex);
+        if (match === null) {
             throw new Error("something went wrong...");
         }
         console.log("matched: ${cur} to ${regex}");
@@ -66,6 +71,14 @@ class Tokenizer {
     moreToken() {
         return this.currentTokenIdx < this.tokens.length;
     }
+
+    static getTokenizer() {
+        return this.instance;
+    }
+
+    static makeTokenizer(filename) {
+        this.instance = new Tokenizer(filename);
+    }
 }
 
-new Tokenizer("sample.txt");
+module.exports = Tokenizer;
