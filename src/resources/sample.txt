@@ -1,5 +1,5 @@
 Entity:Rental
-Unique attributes: Phone #
+Unique attributes: Phone#
 Non-unique attributes: Name, Date
 end
 Entity:Customer
