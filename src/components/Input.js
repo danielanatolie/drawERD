@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { directive } from '@babel/types';
+import mermaid from 'mermaid';
 export default class Input extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
-
+    this.state = { value: '', output: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,6 +14,10 @@ export default class Input extends Component {
 
   handleSubmit(event) {
     alert('A name was submitted: ' + this.state.value);
+    mermaid.parse(this.state.value);
+    mermaid.render('theGraph', this.state.value, function (svgCode) {
+      console.log(svgCode);
+    })
     event.preventDefault();
   }
   render() {
