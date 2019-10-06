@@ -11,9 +11,7 @@ class EDGE extends Node {
   evaluate() {
     switch (this.type) {
       case 'attribute':
-        var attribute = this.node2 + '((' + this.node2 + '))';
-        var entity = this.node1 + '[' + this.node1 + ']';
-        var data = entity + ' -- ' + attribute;
+        var data = this.node1 + ' --- ' + this.node2;
         break;
       case '1-1':
         var data = this.node1 + ' -- ' + this.node2;
