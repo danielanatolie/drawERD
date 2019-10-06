@@ -26,8 +26,6 @@ class ENTITY extends Node {
                 this.nonUniqueAttributes.push (cur);
                 cur = this.tokenizer.getNext();
             }
-            //console.log(this.uniqueAttributes);
-            //console.log(this.nonUniqueAttributes);
         }
         catch (err) {
             throw new Error("Unable to build AST");
@@ -35,10 +33,6 @@ class ENTITY extends Node {
     }
 
     evaluate() {
-        //console.log(this.name);
-        //console.log(this.uniqueAttributes);
-        //console.log(this.nonUniqueAttributes);
-
         if (this.uniqueAttributes.length != 0) {
             for (let i = 0; i < this.uniqueAttributes.length; i++) {
                 const attribute = new ATTRIBUTE(this.name, true);
