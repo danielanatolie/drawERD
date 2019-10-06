@@ -1,5 +1,4 @@
-const Node = require('../parser/Node')
-
+const Node = require('../parser/Node');
 
 class EDGE extends Node {
   constructor(node1, node2, type) {
@@ -11,22 +10,24 @@ class EDGE extends Node {
 
   evaluate() {
     switch (this.type) {
-      case "attribute":
-        var data  = this.node1 + " --- " + this.node2
+      case 'attribute':
+        var attribute = this.node2 + '((' + this.node2 + '))';
+        var entity = this.node1 + '[' + this.node1 + ']';
+        var data = entity + ' -- ' + attribute;
         break;
-      case "1-1":
-        var data = this.node1 + " -- " + this.node2;
+      case '1-1':
+        var data = this.node1 + ' -- ' + this.node2;
         break;
-      case "1-M":
-        var data = this.node1 + " --> " + this.node2;
+      case '1-M':
+        var data = this.node1 + ' --> ' + this.node2;
         break;
-      case "M-1":
-        var data = this.node1 + " <-- " + this.node2;
+      case 'M-1':
+        var data = this.node1 + ' <-- ' + this.node2;
       default:
-        throw new Error("Invalid type, could not generate graph edge.")
+        throw new Error('Invalid type, could not generate graph edge.');
     }
-    this.tokenizer.mermaidInput.push(data)
-    // console.log(data + '\n')
+    // this.mermaidInput.push(data + '\n')
+    console.log(data + '\n');
   }
 }
 
