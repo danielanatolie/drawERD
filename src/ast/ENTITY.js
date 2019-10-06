@@ -36,14 +36,14 @@ class ENTITY extends Node {
     evaluate() {
         if (this.uniqueAttributes.length != 0) {
             for (let i = 0; i < this.uniqueAttributes.length; i++) {
-                const attribute = new ATTRIBUTE(this.name, true);
+                const attribute = new ATTRIBUTE(this.name, this.uniqueAttributes[i], true);
                 attribute.evaluate();
             }
         }
         
         if (this.nonUniqueAttributes.length != 0) {
             for (let i = 0; i < this.nonUniqueAttributes.length; i++) {
-                const attribute = new ATTRIBUTE(this.name, false);
+                const attribute = new ATTRIBUTE(this.name, this.nonUniqueAttributes[i],false);
                 attribute.evaluate();
             }
         }  

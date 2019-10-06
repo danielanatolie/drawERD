@@ -3,9 +3,10 @@ const Tokenizer = require('../parser/Tokenizer')
 const EDGE = require('./EDGE')
 
 class ATTRIBUTE extends Node {
-    constructor(entity, isUnique) {
+    constructor(entity, name, isUnique) {
         super();
         this.entity = entity;
+        this.name = name;
         this.isUnique = isUnique;
     }
 
@@ -37,5 +38,6 @@ class ATTRIBUTE extends Node {
 // Tokenizer.makeTokenizer("attribute.txt")
 // const x = new ATTRIBUTE(undefined, true);
 // x.parse();
+// x.evaluate();
 
 module.exports = ATTRIBUTE;
