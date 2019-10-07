@@ -1,1 +1,1 @@
-Unique attributes: Phone #
+Unique attributes: Phone

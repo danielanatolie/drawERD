@@ -3,6 +3,8 @@ const path = require("path");
 
 class Tokenizer {
     constructor(fileName) {
+        this.mermaidInput = [];
+        this.mermaidInput.push("graph TD");
         try {
             this.program = fs.readFileSync(
                 path.join("./src/resources", fileName),
@@ -49,7 +51,6 @@ class Tokenizer {
 
     checkToken(regex) {
         const cur = this.checkNext();
-        console.log('comparing ' + cur + ' to ' + regex);
         const match = cur.match(regex);
         if (match === null) {
             return false;
@@ -64,7 +65,6 @@ class Tokenizer {
         if (match === null) {
             throw new Error("something went wrong...");
         }
-        console.log("matched: ${cur} to ${regex}");
         return cur;
     }
 
@@ -78,6 +78,10 @@ class Tokenizer {
 
     static makeTokenizer(filename) {
         this.instance = new Tokenizer(filename);
+    }
+
+    convertMermaidInputToString() {
+        return this.mermaidInput.join("\n");
     }
 }
 

@@ -6,7 +6,6 @@ const Tokenizer = require('../parser/Tokenizer')
 class PROGRAM extends Node {
     constructor() {
         super();
-        //this.mermaidInput = "";
         this.entities = [];
         this.relationships = [];
     }
@@ -42,11 +41,14 @@ class PROGRAM extends Node {
                 this.relationships[i].evaluate();
             }
         }
+        // console.log(this.tokenizer.convertMermaidInputToString());
     }
 }
 
-//Tokenizer.makeTokenizer("sample.txt");
-//const x = new PROGRAM();
-//x.parse();
+// Tokenizer.makeTokenizer("sample.txt");
+// const x = new PROGRAM();
+// x.parse()
+// x.evaluate()
+// console.log(Tokenizer.getTokenizer().mermaidInput);
 
 module.exports = PROGRAM;
