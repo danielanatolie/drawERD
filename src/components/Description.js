@@ -25,7 +25,7 @@ export const Description = () => {
         <h3> {exampleInput}</h3>
         <ul>
           <li>Entity: Rental</li>
-          <li>Unique attributes: Phone #</li>
+          <li>Unique attributes: Phone#</li>
           <li>Non-unique attributes: Name, Date</li>
           <li>end</li>
 
@@ -36,7 +36,7 @@ export const Description = () => {
           <li>Relationship: Has</li>
           <li>Entity1: Rental</li>
           <li>Entity2: Customer</li>
-          <li>Type: 1-MA</li>
+          <li>Type: 1-M</li>
           <li>end</li>
         </ul>
 
