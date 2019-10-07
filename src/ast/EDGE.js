@@ -12,9 +12,9 @@ class EDGE extends Node {
   evaluate() {
     switch (this.type) {
       case "attribute":
-        var attribute = this.node2 + "((" + this.node2 + "))"
-        var entity = this.node1 + "[" + this.node1 + "]"
-        var data  = entity + " -- " + attribute
+        // var attribute = this.node2 + "((" + this.node2 + "))"
+        // var entity = this.node1 + "[" + this.node1 + "]"
+        var data  = this.node1 + " -- " + this.node2
         break;
       case "1-1":
         var data = this.node1 + " -- " + this.node2;
@@ -27,8 +27,9 @@ class EDGE extends Node {
       default:
         throw new Error("Invalid type, could not generate graph edge.")
     }
-    // this.mermaidInput.push(data + '\n')
-    console.log(data + '\n')
+    // this.mermaidInput.concat("blah!")
+    this.mermaidInput.push(data)
+    // console.log(this.mermaidInput.getLength())
   }
 }
 

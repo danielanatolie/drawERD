@@ -1,9 +1,10 @@
 const Tokenizer = require('./Tokenizer');
+const MermaidInput = require('./MermaidInput');
 
 class Node {
     constructor() {
         this.tokenizer = Tokenizer.getTokenizer();
-        this.mermaidInput = [];
+        this.mermaidInput = new MermaidInput();
     }
 
     parse() {

@@ -7,11 +7,11 @@ class ATTRIBUTE extends Node {
         super();
         this.entity = entity;
         this.isUnique = isUnique;
+        this.name = ""
     }
 
     parse() {
         try {
-            
             if (this.isUnique) {
                 this.tokenizer.getAndCheck("Unique attributes");
             } else {
@@ -25,6 +25,8 @@ class ATTRIBUTE extends Node {
     }
 
     evaluate() {
+        var data = this.name + "((" + this.name + "))"
+        this.mermaidInput.push(data)
         const edge = new EDGE(this.entity, this.name, "attribute");
         edge.evaluate();
     }

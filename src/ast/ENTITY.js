@@ -34,6 +34,8 @@ class ENTITY extends Node {
     }
 
     evaluate() {
+        var data = this.name + "[" + this.name + "]"
+        this.mermaidInput.push(data)
         if (this.uniqueAttributes.length != 0) {
             for (let i = 0; i < this.uniqueAttributes.length; i++) {
                 const attribute = new ATTRIBUTE(this.name, true);
