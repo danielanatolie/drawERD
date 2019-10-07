@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReactComponent as YourSvg } from '../resources/exampleSvgCode.svg';
 
 export const Description = () => {
   const grammar = 'Formal Grammar';
@@ -41,6 +42,7 @@ export const Description = () => {
         </ul>
 
         <h3> {exampleOutput}</h3>
+        <YourSvg />
       </div>
     </div>
   );

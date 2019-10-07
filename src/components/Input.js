@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Tokenizer from '../parser/Tokenizer';
-import Output from './Output';
 import mermaid from 'mermaid';
 const PROGRAM = require('../ast/PROGRAM');
 export default class Input extends Component {
