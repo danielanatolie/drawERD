@@ -4,6 +4,7 @@ const path = require("path");
 class Tokenizer {
     constructor(fileName) {
         this.mermaidInput = [];
+        this.mermaidInput.push("graph TD");
         try {
             this.program = fs.readFileSync(
                 path.join("./src/resources", fileName),
