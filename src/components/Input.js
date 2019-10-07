@@ -27,21 +27,21 @@ export default class Input extends Component {
       try {
         // Tokenize
         Tokenizer.makeTokenizer(this.state.value);
-        console.log('Tokenizing done');
+        // console.log('Tokenizing done');
         // Parse
         let program = new PROGRAM();
         program.parse();
-        console.log('Parsing done');
+        // console.log('Parsing done');
         // Evaluate;
         program.evaluate();
-        console.log('Evaluation done');
+        // console.log('Evaluation done');
 
         //mermaid
         let mermaidInput = Tokenizer.getTokenizer().convertMermaidInputToString();
+        // console.log('mermaid input', mermaidInput)
         let output = document.getElementById('output');
 
         mermaid.render('theGraph', mermaidInput, function(svgCode) {
-          console.log('mermaid renders');
           output.innerHTML = svgCode;
         });
       } catch (err) {
