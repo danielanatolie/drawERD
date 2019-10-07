@@ -1,8 +1,8 @@
 .App {
   text-align: center;
-  background-color: #282c34;
   height: 100vh;
   font-family: 'Courier New';
+  background-color: #282c34;
 }
 
 .title {
@@ -19,7 +19,13 @@
 .container {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   font-family: 'Courier New';
+  background-color: #282c34;
+}
+
+.description {
+  flex-basis: auto;
 }
 
 textarea {
@@ -31,7 +37,7 @@ textarea {
   font-family: 'Courier New';
   font-size: 16px;
 }
-input,
+
 label {
   display: block;
 }
@@ -64,9 +70,14 @@ h3 {
 }
 
 .grammar,
-.example {
+.example,
+#output {
   background-color: white;
   display: block;
   margin: 10px;
   padding: 5px;
+}
+
+#output {
+  min-height: 400px;
 }

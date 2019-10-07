@@ -5,14 +5,15 @@ class Tokenizer {
     constructor(fileName) {
         this.mermaidInput = [];
         this.mermaidInput.push("graph TD");
-        try {
-            this.program = fs.readFileSync(
-                path.join("./src/resources", fileName),
-                "utf-8"
-            );
-        } catch (err) {
-            throw new Error("Unable to load source: ${filename}");
-        }
+        // try {
+        //     this.program = fs.readFileSync(
+        //         path.join("./src/resources", fileName),
+        //         "utf-8"
+        //     );
+        // } catch (err) {
+        //     throw new Error("Unable to load source: ${filename}");
+        // }
+        this.program = fileName;
         // initialize tokenizer's fields
         this.tokens = []
         this.currentTokenIdx = 0;
